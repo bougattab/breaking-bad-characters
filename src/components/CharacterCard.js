@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid'
 import {useDispatch } from 'react-redux';
 import { getCharacter } from '../store/actionCreators';
+import dayjs from 'dayjs'
 
 
 
@@ -48,7 +49,7 @@ export default function CharacterCard({character:{name, img, char_id, status, po
                 {name}
               </Typography>
               <Typography component="p" variant="p">
-                Born: {birthday}
+                Born: {birthday !== 'Unknown' ? dayjs(birthday).format('MMMM DD, YYYY') : birthday}
               </Typography>
               <Typography component="p" variant="p">
                 Status: {status}
